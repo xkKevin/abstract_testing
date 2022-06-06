@@ -3,7 +3,7 @@
     <el-container>
         <el-header style="text-align: center; background-color: lightblue; line-height: 60px">
             <strong style="font-size: 26px;">Rearrange Abstract Sentences</strong>
-            <span style="float: right; margin-right: 10px;">
+            <span style="position: absolute; right: 30px;">
                 Account: {{account}}
             </span>
         </el-header>
@@ -24,7 +24,7 @@
             </el-aside>
             <el-main>
                 <div v-if="show_test">
-                    <el-input v-model="paper_url" placeholder="Copy a paper's url" @keyup.enter.native="searchPaper">
+                    <el-input v-model="paper_url" placeholder="Copy a paper's url" @keyup.enter.native="searchPaper" clearable>
                         <template slot="prepend">Paper URL</template>
                         <el-button slot="append" icon="el-icon-search" @click="searchPaper">Search</el-button>
                     </el-input>
