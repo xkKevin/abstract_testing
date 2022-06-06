@@ -48,6 +48,7 @@
                         <p v-show="show_answer" style="margin-left: 20px;">{{answer_result}}</p>
                         <div v-show="show_answer">
                             <p>The correct answers: {{anwsers}}</p>
+                            <code-diff :old-string="anwsers" :new-string="user_answers"/>
                             <!-- <el-button type="primary" plain @click="nextPaper">Next Paper</el-button> -->
                         </div>
                     </div>
@@ -68,6 +69,7 @@
                                 <span v-else>{{v}}</span>
                             </div>
                         </div>
+                        <code-diff :old-string="item.right_answers" :new-string="item.account_answers"/>
                     </div>
                 </div>
             </el-main>
@@ -81,6 +83,7 @@
 import axios from 'axios';
 import cheerio from 'cheerio';
 import draggable from 'vuedraggable'
+import CodeDiff from 'vue-code-diff'
 
 import {
     updateRecords,
@@ -225,6 +228,7 @@ export default {
     },
     components: {
         draggable,
+        CodeDiff
     },
 }
 </script>
